@@ -46,7 +46,7 @@ $(document).ready(()=>{
       var to = ((i + 1) * 4 + remain) % 24;
       var fromStr = (from < 10 ? '0' : '') + from + ":" + "00";
       var toStr = (to < 10 ? '0' : '') + to + ":" + "00";
-      timeRow.html(timeRow.html() + '<td>' + fromStr + '~' + toStr + '</td>');
+      timeRow.html(timeRow.html() + '<td>' + fromStr + '<br>~<br>' + toStr + '</td>');
    }
 
    var dataChart = $('tbody');
@@ -124,7 +124,7 @@ $(document).ready(()=>{
          }
 
          if(trueChart[_day + '_' + _time].length > 1){
-            eventStr += '<div id="tiger">剑齿虎</div>';
+            eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
          }
 
          var testTime = Math.ceil(_testTime / 4) - 1;
