@@ -98,10 +98,10 @@ $(document).ready(()=>{
                eventStr = '许愿树';
                break;
             case 'recruit':
-               eventStr = '极速招募';
+               eventStr = '招募';
                break;
             case 'power':
-               eventStr = '实力提升';
+               eventStr = '实力';
                break;
             case 'research':
                eventStr = '研究';
@@ -116,10 +116,10 @@ $(document).ready(()=>{
                eventStr = '大扫除';
                break;
             case 'wolf':
-               eventStr = '部落杀狼';
+               eventStr = '杀狼';
                break;
             case 'rune':
-               eventStr = '符文低语';
+               eventStr = '符文';
                break;
          }
 
