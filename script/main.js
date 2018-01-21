@@ -129,7 +129,6 @@ $(document).ready(()=>{
             eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
          }
 
-         console.log(_testTime);
          var testTime = Math.floor(_testTime / 4);
          var isNow = (testDay == _day && testTime == _time);
          var cls = eve.event + (eve.length > 1 ? ' tiger' : '') + (trueChart[_day + '_' + _time].length > 1 ? ' tiger' : '') + (isNow ? ' now' : '');
@@ -161,8 +160,6 @@ var tick = ()=>{
    var currentMinutes = date.getMinutes();
    var currentSeconds = date.getSeconds();
    var remainingTime = (3 - ((currentHour - remain) % 4)) * 60 * 60 + (59 - currentMinutes) * 60 + (60 - currentSeconds);
-
-   console.log(remainingTime);
 
    if(remainingTime < 0){
       location.reload();
