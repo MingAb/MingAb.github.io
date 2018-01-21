@@ -5,7 +5,7 @@ td{ text-align: center; border: 2px #bba solid; position: relative;}
 td:first-child{ width: 10%;}
 thead{ line-height: 1em;}
 thead tr td{ padding-top: 14px; padding-bottom: 14px; }
-#sum{ height: 6%; }
+#sum{ height: 5%; }
 
 thead tr:nth-child(2n+1){
    background-color: #aa9;
