@@ -46,7 +46,7 @@ $(document).ready(()=>{
       var to = ((i + 1) * 4 + remain) % 24;
       var fromStr = (from < 10 ? '0' : '') + from + ":" + "00";
       var toStr = (to < 10 ? '0' : '') + to + ":" + "00";
-      timeRow.html(timeRow.html() + '<td>' + fromStr + '<br>~<br>' + toStr + '</td>');
+      timeRow.html(timeRow.html() + '<td>' + fromStr + '<br>' + toStr + '</td>');
    }
 
    var dataChart = $('tbody');
@@ -57,25 +57,25 @@ $(document).ready(()=>{
       var dayStr = '';
       switch (_day) {
          case 0:
-            dayStr = '星期一';
+            dayStr = '一';
             break;
          case 1:
-            dayStr = '星期二';
+            dayStr = '二';
             break;
          case 2:
-            dayStr = '星期三';
+            dayStr = '三';
             break;
          case 3:
-            dayStr = '星期四';
+            dayStr = '四';
             break;
          case 4:
-            dayStr = '星期五';
+            dayStr = '五';
             break;
          case 5:
-            dayStr = '星期六';
+            dayStr = '六';
             break;
          case 6:
-            dayStr = '星期日';
+            dayStr = '日';
             break;
       }
       var curRow = $('tr[id=day' + _day + ']');
@@ -95,7 +95,7 @@ $(document).ready(()=>{
          var eventStr = '';
          switch (eve.event) {
             case 'wish':
-               eventStr = '许愿树';
+               eventStr = '许愿';
                break;
             case 'recruit':
                eventStr = '招募';
@@ -110,10 +110,10 @@ $(document).ready(()=>{
                eventStr = '建造';
                break;
             case 'brutal':
-               eventStr = '原始人';
+               eventStr = '原始';
                break;
             case 'clean':
-               eventStr = '大扫除';
+               eventStr = '扫除';
                break;
             case 'wolf':
                eventStr = '杀狼';
