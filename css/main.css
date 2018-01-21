@@ -1,7 +1,7 @@
 body{ margin: 0; padding: 0; background-color: #ffe; }
 .wrapper{ width: 100%; }
 table{ line-height: 1.1em; font-size: 1.2em; width: 100%; margin: 0px auto; font-weight: bold; text-shadow: 0px -1px 1px #ddc; margin: 0px auto; position: absolute; top:50%; transform: translateY(-50%); }
-td{ text-align: center; border: 2px #887 solid; position: relative;}
+td{ text-align: center; border: 2px #bba solid; position: relative;}
 td:first-child{ width: 10%;}
 thead{ line-height: 3em;}
 
