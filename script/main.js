@@ -141,6 +141,7 @@ $(document).ready(()=>{
    sumRow.html(sumRow.html() + '<td colspan="3">剩余时间</td>');
    sumRow.html(sumRow.html() + '<td colspan="4" id="remainingTime">00:00</td>');
 
+   tick();
    setInterval(tick, 1000);
 
 
