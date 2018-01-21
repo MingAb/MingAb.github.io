@@ -134,4 +134,7 @@ $(document).ready(()=>{
       }
    }
 
+   $('td').click(function(){
+      $(this).removeClass('now');
+   })
 });
