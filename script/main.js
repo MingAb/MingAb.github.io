@@ -2,7 +2,7 @@ $(document).ready(()=>{
    var date = new Date();
    var offset = date.getTimezoneOffset();
    var data = timeline.data;
-
+   
    var newChart = {};
    for(var i = 0; i < data.length; i++){
       var eve = data[i];
@@ -83,7 +83,7 @@ $(document).ready(()=>{
       for(var _time = 0; _time < 6; _time++){
          var eve = trueChart[_day + '_' + _time][0];
          var testDay = currentDay;
-         var _testTime = (currentHour - eventOffset);
+         var _testTime = currentHour - remain;
          if(_testTime < 0){
             _testTime += 24;
             testDay--;
@@ -127,7 +127,8 @@ $(document).ready(()=>{
             eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
          }
 
-         var testTime = Math.ceil(_testTime / 4) - 1;
+         console.log(_testTime);
+         var testTime = Math.floor(_testTime / 4);
          var isNow = (testDay == _day && testTime == _time);
          var cls = eve.event + (eve.length > 1 ? ' tiger' : '') + (trueChart[_day + '_' + _time].length > 1 ? ' tiger' : '') + (isNow ? ' now' : '');
          curRow.html(curRow.html() + '<td ' + 'class="' + cls + '" id="day' + _day + '_time' + _time + '">' + eventStr + '</td>');
