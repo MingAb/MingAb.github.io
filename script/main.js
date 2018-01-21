@@ -2,7 +2,8 @@ $(document).ready(()=>{
    var date = new Date();
    var offset = date.getTimezoneOffset();
    var data = timeline.data;
-   
+
+   //转换时区
    var newChart = {};
    for(var i = 0; i < data.length; i++){
       var eve = data[i];
@@ -52,6 +53,7 @@ $(document).ready(()=>{
    var dataChart = $('tbody');
    var currentDay = (date.getDay() - 1 < 0 ? 6 : date.getDay() - 1);
    var currentHour = date.getHours();
+
    for(var _day = 0; _day < 7; _day++){
       dataChart.html(dataChart.html() + '<tr id="day' + _day + '"></tr>');
       var dayStr = '';
