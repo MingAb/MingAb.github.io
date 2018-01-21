@@ -189,10 +189,6 @@ var timeline = {
          "day": 3,
          "time": 4,
          "event": "tiger"
-      },{
-         "day": 3,
-         "time": 5,
-         "event": "tiger"
       }
    ]
 };
