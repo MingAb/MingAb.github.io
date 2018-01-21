@@ -16,6 +16,8 @@ $(document).ready(()=>{
    var timeOffset = (offset / 60);
    var eventOffset = Math.floor(Math.abs(timeOffset / 4)) * (timeOffset < 0 ? -1 : 1);
    var remain = Math.abs(timeOffset) % 4;
+   var currentDay = (date.getDay() - 1 < 0 ? 6 : date.getDay() - 1);
+   var currentHour = date.getHours();
 
    var trueChart = {};
    for(var _day = 0; _day < 7; _day++){
@@ -51,8 +53,6 @@ $(document).ready(()=>{
    }
 
    var dataChart = $('tbody');
-   var currentDay = (date.getDay() - 1 < 0 ? 6 : date.getDay() - 1);
-   var currentHour = date.getHours();
 
    for(var _day = 0; _day < 7; _day++){
       dataChart.html(dataChart.html() + '<tr id="day' + _day + '"></tr>');
@@ -137,7 +137,39 @@ $(document).ready(()=>{
       }
    }
 
+   dataChart.html(dataChart.html() + '<tr id="sum"></tr>');
+   var sumRow = $('#sum');
+   sumRow.html(sumRow.html() + '<td colspan="3">剩余时间</td>');
+   sumRow.html(sumRow.html() + '<td colspan="4" id="remainingTime">00:00</td>');
+
+   setInterval(tick, 1000);
+
+
    $('td').click(function(){
       $(this).removeClass('now');
    })
 });
+
+var tick = ()=>{
+   var date = new Date();
+   var offset = date.getTimezoneOffset();
+   var timeOffset = (offset / 60);
+   var eventOffset = Math.floor(Math.abs(timeOffset / 4)) * (timeOffset < 0 ? -1 : 1);
+   var remain = Math.abs(timeOffset) % 4;
+   var currentDay = (date.getDay() - 1 < 0 ? 6 : date.getDay() - 1);
+   var currentHour = date.getHours();
+   var currentMinutes = date.getMinutes();
+   var currentSeconds = date.getSeconds();
+   var remainingTime = (3 - ((currentHour - remain) % 4)) * 60 * 60 + (59 - currentMinutes) * 60 + (60 - currentSeconds);
+
+   console.log(remainingTime);
+
+   if(remainingTime < 0){
+      location.reload();
+   }
+
+   var hrs = Math.floor(remainingTime / (60*60));
+   var mins = Math.floor((remainingTime % (60*60)) / 60);
+   var secs = remainingTime % 60;
+   $('#remainingTime').html((hrs < 10 ? '0' : '') + hrs + ':' + (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs);
+};
