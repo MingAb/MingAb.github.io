@@ -46,7 +46,7 @@ $(document).ready(()=>{
       var to = ((i + 1) * 4 + remain) % 24;
       var fromStr = (from < 10 ? '0' : '') + from + ":" + "00";
       var toStr = (to < 10 ? '0' : '') + to + ":" + "00";
-      timeRow.html(timeRow.html() + '<td>' + fromStr + '</td>');
+      timeRow.html(timeRow.html() + '<td>' + fromStr + '<br>~<br>' + toStr + '</td>');
    }
 
    var dataChart = $('tbody');
