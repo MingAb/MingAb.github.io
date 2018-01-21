@@ -38,8 +38,6 @@ $(document).ready(()=>{
       }
    }
 
-   console.log(trueChart);
-
    // 填充表格
    var timeRow = $('tr[id=time]');
    timeRow.html(timeRow.html() + '<td></td>');
@@ -130,7 +128,6 @@ $(document).ready(()=>{
          }
 
          var testTime = Math.ceil(_testTime / 4) - 1;
-         console.log(testDay + ", " + testTime);
          var isNow = (testDay == _day && testTime == _time);
          var cls = eve.event + (eve.length > 1 ? ' tiger' : '') + (trueChart[_day + '_' + _time].length > 1 ? ' tiger' : '') + (isNow ? ' now' : '');
          curRow.html(curRow.html() + '<td ' + 'class="' + cls + '" id="day' + _day + '_time' + _time + '">' + eventStr + '</td>');
