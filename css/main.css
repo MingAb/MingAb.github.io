@@ -6,6 +6,7 @@ td:first-child{ width: 10%;}
 thead{ line-height: 1em;}
 thead tr td{ padding-top: 14px; padding-bottom: 14px; }
 #sum{ height: 5%; }
+#copy{ height: 3%; font-weight: normal; color: #998; font-size: 0.8em; border: none;}
 
 thead tr:nth-child(2n+1){
    background-color: #aa9;
