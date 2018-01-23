@@ -1,3 +1,8 @@
+var hrs, mins, secs;
+var testTime, testDay;
+var trueChart;
+var remainingTime;
+
 $(document).ready(()=>{
    var date = new Date();
    var offset = date.getTimezoneOffset();
@@ -19,7 +24,7 @@ $(document).ready(()=>{
    var currentDay = (date.getDay() - 1 < 0 ? 6 : date.getDay() - 1);
    var currentHour = date.getHours();
 
-   var trueChart = {};
+   trueChart = {};
    for(var _day = 0; _day < 7; _day++){
       for(var _time = 0; _time < 6; _time++){
          var day = _day;
@@ -84,7 +89,7 @@ $(document).ready(()=>{
       curRow.html(curRow.html() + '<td>' + dayStr + '</td>');
       for(var _time = 0; _time < 6; _time++){
          var eve = trueChart[_day + '_' + _time][0];
-         var testDay = currentDay;
+         testDay = currentDay;
          var _testTime = currentHour - remain;
          if(_testTime < 0){
             _testTime += 24;
@@ -129,10 +134,10 @@ $(document).ready(()=>{
             eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
          }
 
-         var testTime = Math.floor(_testTime / 4);
+         testTime = Math.floor(_testTime / 4);
          var isNow = (testDay == _day && testTime == _time);
          var cls = eve.event + (eve.length > 1 ? ' tiger' : '') + (trueChart[_day + '_' + _time].length > 1 ? ' tiger' : '') + (isNow ? ' now' : '');
-         curRow.html(curRow.html() + '<td ' + 'class="' + cls + '" id="day' + _day + '_time' + _time + '">' + eventStr + '</td>');
+         curRow.html(curRow.html() + '<td data="eve" class="' + cls + '" id="day' + _day + '_time' + _time + '">' + eventStr + '</td>');
       }
    }
 
@@ -147,10 +152,47 @@ $(document).ready(()=>{
    setInterval(tick, 1000);
 
 
-   $('td').click(function(){
-      $(this).removeClass('now');
-   })
+   $('td[data=eve]').click(onCellClick);
 });
+
+function onCellClick(){
+   //$(this).removeClass('now');
+   var cId = $(this).attr('id');
+   var re = /day(\d+)_time(\d+)/g;
+   var r = "";
+   var cDay = 0;
+   var cTime = 0;
+   var tDay = testDay;
+   var tTime = testTime;
+   while(r = re.exec(cId)) {
+      cDay = r[1];
+      cTime = r[2];
+   }
+   if(!(cDay == testDay && cTime == testTime)){
+      var count = 0;
+      do{
+         count++;
+         tTime++;
+         if(tTime > 5){
+            tTime = 0;
+            tDay++;
+            if(tDay > 6){
+               tDay = 0;
+            }
+         }
+         if(count > 100) break;
+
+      }while(tDay != cDay || tTime != cTime);
+
+      var remainTime = (count - 1) * (3600 * 4) + remainingTime;
+      var d = Math.floor(remainTime / (60*60*24));
+      var h = Math.floor((remainTime % (60*60*24)) / 3600);
+      var m = Math.floor((remainTime % (60*60)) / 60);
+      var s = remainingTime % 60;
+      alert('该活动还需' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分钟' : '') + s + '秒');
+   }
+
+}
 
 var tick = ()=>{
    var date = new Date();
@@ -162,14 +204,14 @@ var tick = ()=>{
    var currentHour = date.getHours();
    var currentMinutes = date.getMinutes();
    var currentSeconds = date.getSeconds();
-   var remainingTime = (3 - ((currentHour - remain) % 4)) * 60 * 60 + (59 - currentMinutes) * 60 + (60 - currentSeconds);
+   remainingTime = (3 - ((currentHour - remain) % 4)) * 60 * 60 + (59 - currentMinutes) * 60 + (60 - currentSeconds);
 
    if(remainingTime < 0){
       location.reload();
    }
 
-   var hrs = Math.floor(remainingTime / (60*60));
-   var mins = Math.floor((remainingTime % (60*60)) / 60);
-   var secs = remainingTime % 60;
+   hrs = Math.floor(remainingTime / (60*60));
+   mins = Math.floor((remainingTime % (60*60)) / 60);
+   secs = remainingTime % 60;
    $('#remainingTime').html((hrs < 10 ? '0' : '') + hrs + ':' + (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs);
 };
