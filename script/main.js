@@ -153,7 +153,12 @@ $(document).ready(()=>{
 
 
    $('td[data=eve]').click(onCellClick);
+   $('tr[id=copy]').click(onCickCopy);
 });
+
+function onCickCopy(){
+   alert('当前版本: 1.0.9\n\n本次更新：\n+ 正确显示连续的活动剩余时间。\n+ 点击显示该活动还需的剩余时间范围。');
+};
 
 function onCellClick(){
    //$(this).removeClass('now');
@@ -185,11 +190,17 @@ function onCellClick(){
       }while(tDay != cDay || tTime != cTime);
 
       var remainTime = (count - 1) * (3600 * 4) + remainingTime;
+      var endRemainingTime = remainTime + 3600 * 4;
       var d = Math.floor(remainTime / (60*60*24));
       var h = Math.floor((remainTime % (60*60*24)) / 3600);
       var m = Math.floor((remainTime % (60*60)) / 60);
       var s = remainingTime % 60;
-      alert('该活动还需' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分钟' : '') + s + '秒');
+      var dd = Math.floor(endRemainingTime / (60*60*24));
+      var hh = Math.floor((endRemainingTime % (60*60*24)) / 3600);
+      var mm = Math.floor((endRemainingTime % (60*60)) / 60);
+      var ss = endRemainingTime % 60;
+      alert('该活动在\n' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分' : '') + s + '秒 后开始。\n' +
+      (endRemainingTime > (60*60*24) ? dd + '天' : '') + (endRemainingTime > (60*60) ? hh + '小时' : '') + (endRemainingTime > 60 ? mm + '分' : '') + ss + '秒 后结束。\n');
    }
 
 }
@@ -204,14 +215,39 @@ var tick = ()=>{
    var currentHour = date.getHours();
    var currentMinutes = date.getMinutes();
    var currentSeconds = date.getSeconds();
+   var stream = 0;
+
+   if(trueChart[testDay + '_' + testTime] && trueChart[testDay + '_' + testTime][0]){
+      var curEvent = trueChart[testDay + '_' + testTime][0].event;
+      var ptDay = testDay;
+      var ptTime = testTime;
+      var nextEvent = '';
+      do{
+         ptTime++;
+         if(ptTime >= 6){
+            ptTime = 0;
+            ptDay++;
+            if(ptDay >= 7){
+               ptDay = 0;
+            }
+         }
+         nextEvent = trueChart[ptDay + '_' + ptTime][0].event;
+         if(curEvent == nextEvent){
+            stream++;
+         }
+      }while(curEvent == nextEvent);
+   }
+
+
    remainingTime = (3 - ((currentHour - remain) % 4)) * 60 * 60 + (59 - currentMinutes) * 60 + (60 - currentSeconds);
+   var displayRemainingTime = (stream * 60 * 60 * 4) + remainingTime;
 
    if(remainingTime < 0){
       location.reload();
    }
 
-   hrs = Math.floor(remainingTime / (60*60));
-   mins = Math.floor((remainingTime % (60*60)) / 60);
-   secs = remainingTime % 60;
+   hrs = Math.floor(displayRemainingTime / (60*60));
+   mins = Math.floor((displayRemainingTime % (60*60)) / 60);
+   secs = displayRemainingTime % 60;
    $('#remainingTime').html((hrs < 10 ? '0' : '') + hrs + ':' + (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs);
 };
