@@ -321,7 +321,7 @@ var getEventFullName = function(eve){
          eventStr = '研究大师';
          break;
       case 'build':
-         eventStr = '建造大师';
+         eventStr = '全速建造';
          break;
       case 'brutal':
          eventStr = '原始人战争';
