@@ -99,36 +99,8 @@ $(document).ready(()=>{
             }
          }
 
-         var eventStr = '';
-         switch (eve.event) {
-            case 'wish':
-               eventStr = '许愿';
-               break;
-            case 'recruit':
-               eventStr = '招募';
-               break;
-            case 'power':
-               eventStr = '实力';
-               break;
-            case 'research':
-               eventStr = '研究';
-               break;
-            case 'build':
-               eventStr = '建造';
-               break;
-            case 'brutal':
-               eventStr = '原始';
-               break;
-            case 'clean':
-               eventStr = '扫除';
-               break;
-            case 'wolf':
-               eventStr = '杀狼';
-               break;
-            case 'rune':
-               eventStr = '符文';
-               break;
-         }
+         var eventStr = getEventDisplayName(eve.event);
+
 
          if(trueChart[_day + '_' + _time].length > 1){
             eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
@@ -157,7 +129,7 @@ $(document).ready(()=>{
 });
 
 function onCickCopy(){
-   alert('当前版本: 1.0.9\n\n本次更新：\n+ 正确显示连续的活动剩余时间。\n+ 点击显示该活动还需的剩余时间范围。');
+   alert('当前版本: 1.0.10\n\n本次更新：\n+ 正确显示连续的活动剩余时间。\n+ 点击显示该活动还需的剩余时间范围。');
 };
 
 function onCellClick(){
@@ -169,11 +141,56 @@ function onCellClick(){
    var cTime = 0;
    var tDay = testDay;
    var tTime = testTime;
-   while(r = re.exec(cId)) {
+   if(r = re.exec(cId)) {
       cDay = r[1];
       cTime = r[2];
    }
-   if(!(cDay == testDay && cTime == testTime)){
+   var startCDay = cDay;
+   var endCDay = cDay;
+   var startCTime = cTime;
+   var endCTime = cTime;
+   var startCDayTest = cDay;
+   var startCTimeTest = cTime;
+   var endCDayTest = cDay;
+   var endCTimeTest = cTime;
+   var prevStream = 0;
+   var nextStream = 0;
+   var curEvent = trueChart[cDay + '_' + cTime][0].event;
+   do{
+      startCTimeTest--;
+      if(startCTimeTest < 0){
+         startCTimeTest = 5;
+         startCDayTest--;
+         if(startCDayTest < 0){
+            startCDayTest = 6;
+         }
+      }
+      var testEvent = trueChart[startCDayTest + '_' + startCTimeTest][0].event;
+      if(curEvent == testEvent){
+         prevStream++;
+         startCTime = startCTimeTest;
+         startCDay = startCDayTest;
+      }
+   }while(curEvent == testEvent);
+
+   do{
+      endCTimeTest++;
+      if(endCTimeTest > 5){
+         endCTimeTest = 0;
+         endCDayTest++;
+         if(endCDayTest > 6){
+            endCDayTest = 0;
+         }
+      }
+      var testEvent = trueChart[endCDayTest + '_' + endCTimeTest][0].event;
+      if(curEvent == testEvent){
+         nextStream++;
+         endCTime = endCTimeTest;
+         endCDay = endCDayTest;
+      }
+   }while(curEvent == testEvent);
+
+   if(!(startCDay == testDay && startCTime == testTime)){
       var count = 0;
       do{
          count++;
@@ -187,10 +204,10 @@ function onCellClick(){
          }
          if(count > 100) break;
 
-      }while(tDay != cDay || tTime != cTime);
+      }while(tDay != startCDay || tTime != startCTime);
 
       var remainTime = (count - 1) * (3600 * 4) + remainingTime;
-      var endRemainingTime = remainTime + 3600 * 4;
+      var endRemainingTime = remainTime + (3600 * 4) * (prevStream + nextStream + 1);
       var d = Math.floor(remainTime / (60*60*24));
       var h = Math.floor((remainTime % (60*60*24)) / 3600);
       var m = Math.floor((remainTime % (60*60)) / 60);
@@ -199,7 +216,7 @@ function onCellClick(){
       var hh = Math.floor((endRemainingTime % (60*60*24)) / 3600);
       var mm = Math.floor((endRemainingTime % (60*60)) / 60);
       var ss = endRemainingTime % 60;
-      alert('该活动在\n' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分' : '') + s + '秒 后开始。\n' +
+      alert('该【' + getEventFullName(trueChart[cDay + '_' + cTime][0].event) + '】活动在\n' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分' : '') + s + '秒 后开始。\n' +
       (endRemainingTime > (60*60*24) ? dd + '天' : '') + (endRemainingTime > (60*60) ? hh + '小时' : '') + (endRemainingTime > 60 ? mm + '分' : '') + ss + '秒 后结束。\n');
    }
 
@@ -251,3 +268,71 @@ var tick = ()=>{
    secs = displayRemainingTime % 60;
    $('#remainingTime').html((hrs < 10 ? '0' : '') + hrs + ':' + (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs);
 };
+
+var getEventDisplayName = function(eve){
+   var eventStr = 'N/A';
+   switch (eve) {
+      case 'wish':
+         eventStr = '许愿';
+         break;
+      case 'recruit':
+         eventStr = '招募';
+         break;
+      case 'power':
+         eventStr = '实力';
+         break;
+      case 'research':
+         eventStr = '研究';
+         break;
+      case 'build':
+         eventStr = '建造';
+         break;
+      case 'brutal':
+         eventStr = '原始';
+         break;
+      case 'clean':
+         eventStr = '扫除';
+         break;
+      case 'wolf':
+         eventStr = '杀狼';
+         break;
+      case 'rune':
+         eventStr = '符文';
+         break;
+   }
+   return eventStr;
+}
+
+var getEventFullName = function(eve){
+   var eventStr = 'N/A';
+   switch (eve) {
+      case 'wish':
+         eventStr = '许愿树';
+         break;
+      case 'recruit':
+         eventStr = '极速招募';
+         break;
+      case 'power':
+         eventStr = '实力提升';
+         break;
+      case 'research':
+         eventStr = '研究大师';
+         break;
+      case 'build':
+         eventStr = '建造大师';
+         break;
+      case 'brutal':
+         eventStr = '原始人战争';
+         break;
+      case 'clean':
+         eventStr = '大扫除';
+         break;
+      case 'wolf':
+         eventStr = '部落杀狼';
+         break;
+      case 'rune':
+         eventStr = '符文低语';
+         break;
+   }
+   return eventStr;
+}
