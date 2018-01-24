@@ -129,7 +129,7 @@ $(document).ready(()=>{
 });
 
 function onCickCopy(){
-   alert('当前版本: 1.0.10\n\n本次更新：\n+ 正确显示连续的活动剩余时间。\n+ 点击显示该活动还需的剩余时间范围。');
+   swal('版本信息', '当前版本: 1.0.11<br><br>本次更新：<br>+ 美化弹出窗口。<br>+ 正确显示连续的活动剩余时间。<br>+ 点击显示该活动还需的剩余时间范围。<br><br>联系作者：QQ791156900', 'info');
 };
 
 function onCellClick(){
@@ -216,8 +216,10 @@ function onCellClick(){
       var hh = Math.floor((endRemainingTime % (60*60*24)) / 3600);
       var mm = Math.floor((endRemainingTime % (60*60)) / 60);
       var ss = endRemainingTime % 60;
-      alert('该【' + getEventFullName(trueChart[cDay + '_' + cTime][0].event) + '】活动在\n' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分' : '') + s + '秒 后开始。\n' +
-      (endRemainingTime > (60*60*24) ? dd + '天' : '') + (endRemainingTime > (60*60) ? hh + '小时' : '') + (endRemainingTime > 60 ? mm + '分' : '') + ss + '秒 后结束。\n');
+      swal(getEventFullName(trueChart[cDay + '_' + cTime][0].event),
+      '<span style="color:#699; font-weight: bold;">' + (remainTime > (60*60*24) ? d + '天' : '') + (remainTime > (60*60) ? h + '小时' : '') + (remainTime > 60 ? m + '分' : '') + s + '秒</span> 后开始。<br>' +
+      '<span style="color:#699; font-weight: bold;">' + (endRemainingTime > (60*60*24) ? dd + '天' : '') + (endRemainingTime > (60*60) ? hh + '小时' : '') + (endRemainingTime > 60 ? mm + '分' : '') + ss + '秒</span> 后结束。\n',
+      'info');
    }
 
 }
