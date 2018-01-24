@@ -60,7 +60,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 2,
-         "event": "brutal"
+         "event": "clean"
       },{
          "day": 2,
          "time": 3,
