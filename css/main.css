@@ -1,28 +1,20 @@
 body{ margin: 0; padding: 0; background-color: #ffe;}
 .wrapper{ width: 100%; }
 table{ color: #346; line-height: 1.1em; font-size: 1.2em; width: 100%; margin: 0px auto; font-weight: bold; text-shadow: 0px -1px 1px #ddc; position: absolute !important;}
-td{ text-align: center;  position: relative; border-left: 2px #bcc solid;}
+td{ text-align: center;  position: relative; border: 2px #bcc solid;}
 td:first-child{ width: 10%;}
 thead{ line-height: 1em;}
 thead tr td{ padding-top: 14px; padding-bottom: 14px; }
 #sum{ height: 5%; }
 #copy{ height: 3%; font-weight: normal; color: #899; font-size: 0.8em; border: none;}
 thead tr:nth-child(2n+1){
-   background-color: #aabbbb;
+   background-color: #cdd;
 }
 tbody tr:nth-child(2n){
-   background-color: #ccdddd;
+   background-color: #cdd;
 }
 tbody tr:nth-child(2n+1){
-   background-color: #ddeeee;
-}
-
-tr:nth-child(2n) td:nth-child(2n+1){
-   background-color: #becfcf;
-}
-
-tbody tr:nth-child(2n+1) td:nth-child(2n+1){
-   background-color: #ccdddd;
+   background-color: #dee;
 }
 
 @keyframes flashing{
