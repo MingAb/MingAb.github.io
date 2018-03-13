@@ -16,7 +16,7 @@ var timeline = {
       },{
          "day": 0,
          "time": 3,
-         "event": "build"
+         "event": "rune"
       },{
          "day": 0,
          "time": 4,
