@@ -1,5 +1,5 @@
 var timeline = {
-   "version":"1.0.10",
+   "version":"1.0.11",
    "data":[
       {
          "day": 0,
@@ -48,15 +48,15 @@ var timeline = {
       },{
          "day": 1,
          "time": 5,
-         "event": "brutal"
+         "event": "research"
       },{
          "day": 2,
          "time": 0,
-         "event": "brutal"
+         "event": "recruit"
       },{
          "day": 2,
          "time": 1,
-         "event": "brutal"
+         "event": "build"
       },{
          "day": 2,
          "time": 2,
