@@ -118,7 +118,7 @@ $(document).ready(()=>{
    sumRow.html(sumRow.html() + '<td colspan="3">剩余时间</td>');
    sumRow.html(sumRow.html() + '<td colspan="4" id="remainingTime">00:00</td>');
 
-   dataChart.html(dataChart.html() + '<tr id="copy"><td colspan="7">#167@黑暗钓鱼王</td></tr>');
+   dataChart.html(dataChart.html() + '<tr id="copy"><td colspan="7">Q250@司马懿</td></tr>');
 
    tick();
    setInterval(tick, 1000);
