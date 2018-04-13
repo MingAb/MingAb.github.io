@@ -16,7 +16,7 @@ var timeline = {
       },{
          "day": 0,
          "time": 3,
-         "event": "rune"
+         "event": "build"
       },{
          "day": 0,
          "time": 4,
@@ -56,7 +56,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 1,
-         "event": "build"
+         "event": "wish"
       },{
          "day": 2,
          "time": 2,
@@ -76,11 +76,11 @@ var timeline = {
       },{
          "day": 3,
          "time": 0,
-         "event": "research"
+         "event": "wolf"
       },{
          "day": 3,
          "time": 1,
-         "event": "build"
+         "event": "wolf"
       },{
          "day": 3,
          "time": 2,
@@ -96,11 +96,11 @@ var timeline = {
       },{
          "day": 3,
          "time": 5,
-         "event": "wolf"
+         "event": "rune"
       },{
          "day": 4,
          "time": 0,
-         "event": "wolf"
+         "event": "power"
       },{
          "day": 4,
          "time": 1,
@@ -108,15 +108,15 @@ var timeline = {
       },{
          "day": 4,
          "time": 2,
-         "event": "power"
-      },{
-         "day": 4,
-         "time": 3,
          "event": "research"
       },{
          "day": 4,
-         "time": 4,
+         "time": 3,
          "event": "build"
+      },{
+         "day": 4,
+         "time": 4,
+         "event": "clean"
       },{
          "day": 4,
          "time": 5,
@@ -156,7 +156,7 @@ var timeline = {
       },{
          "day": 6,
          "time": 2,
-         "event": "rune"
+         "event": "build"
       },{
          "day": 6,
          "time": 3,
