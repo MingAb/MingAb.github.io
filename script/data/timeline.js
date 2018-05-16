@@ -52,15 +52,15 @@ var timeline = {
       },{
          "day": 2,
          "time": 0,
-         "event": "recruit"
+         "event": "clean"
       },{
          "day": 2,
          "time": 1,
-         "event": "wish"
+         "event": "power"
       },{
          "day": 2,
          "time": 2,
-         "event": "clean"
+         "event": "research"
       },{
          "day": 2,
          "time": 3,
