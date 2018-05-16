@@ -68,7 +68,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 4,
-         "event": "research"
+         "event": "wish"
       },{
          "day": 2,
          "time": 5,
