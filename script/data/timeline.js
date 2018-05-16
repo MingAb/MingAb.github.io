@@ -60,7 +60,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 2,
-         "event": "research"
+         "event": "build"
       },{
          "day": 2,
          "time": 3,
