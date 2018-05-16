@@ -64,7 +64,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 3,
-         "event": "power"
+         "event": "recruit"
       },{
          "day": 2,
          "time": 4,
