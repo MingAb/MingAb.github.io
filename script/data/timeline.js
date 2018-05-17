@@ -76,7 +76,7 @@ var timeline = {
       },{
          "day": 3,
          "time": 0,
-         "event": "wolf"
+         "event": "research"
       },{
          "day": 3,
          "time": 1,
@@ -84,7 +84,7 @@ var timeline = {
       },{
          "day": 3,
          "time": 2,
-         "event": "recruit"
+         "event": "wolf"
       },{
          "day": 3,
          "time": 3,
