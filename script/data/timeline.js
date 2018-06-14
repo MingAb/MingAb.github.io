@@ -52,23 +52,23 @@ var timeline = {
       },{
          "day": 2,
          "time": 0,
-         "event": "clean"
+         "event": "wish"
       },{
          "day": 2,
          "time": 1,
-         "event": "power"
+         "event": "build"
       },{
          "day": 2,
          "time": 2,
-         "event": "research"
+         "event": "clean"
       },{
          "day": 2,
          "time": 3,
-         "event": "recruit"
+         "event": "power"
       },{
          "day": 2,
          "time": 4,
-         "event": "wish"
+         "event": "research"
       },{
          "day": 2,
          "time": 5,
