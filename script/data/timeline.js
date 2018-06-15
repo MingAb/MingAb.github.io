@@ -96,11 +96,11 @@ var timeline = {
       },{
          "day": 3,
          "time": 5,
-         "event": "rune"
+         "event": "recruit"
       },{
          "day": 4,
          "time": 0,
-         "event": "power"
+         "event": "clean"
       },{
          "day": 4,
          "time": 1,
@@ -108,7 +108,7 @@ var timeline = {
       },{
          "day": 4,
          "time": 2,
-         "event": "research"
+         "event": "power"
       },{
          "day": 4,
          "time": 3,
