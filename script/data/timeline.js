@@ -112,7 +112,7 @@ var timeline = {
       },{
          "day": 4,
          "time": 3,
-         "event": "build"
+         "event": "search"
       },{
          "day": 4,
          "time": 4,
