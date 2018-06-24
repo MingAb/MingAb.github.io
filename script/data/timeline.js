@@ -112,11 +112,11 @@ var timeline = {
       },{
          "day": 4,
          "time": 3,
-         "event": "search"
+         "event": "research"
       },{
          "day": 4,
          "time": 4,
-         "event": "clean"
+         "event": "build"
       },{
          "day": 4,
          "time": 5,
@@ -156,7 +156,7 @@ var timeline = {
       },{
          "day": 6,
          "time": 2,
-         "event": "build"
+         "event": "rune"
       },{
          "day": 6,
          "time": 3,
