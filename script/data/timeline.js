@@ -40,7 +40,7 @@ var timeline = {
       },{
          "day": 1,
          "time": 3,
-         "event": "rune"
+         "event": "clean"
       },{
          "day": 1,
          "time": 4,
@@ -48,15 +48,15 @@ var timeline = {
       },{
          "day": 1,
          "time": 5,
-         "event": "research"
+         "event": "rune"
       },{
          "day": 2,
          "time": 0,
-         "event": "wish"
+         "event": "build"
       },{
          "day": 2,
          "time": 1,
-         "event": "rune"
+         "event": "recruit"
       },{
          "day": 2,
          "time": 2,
