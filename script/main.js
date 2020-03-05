@@ -118,7 +118,7 @@ $(document).ready(()=>{
    sumRow.html(sumRow.html() + '<td colspan="3">剩余时间</td>');
    sumRow.html(sumRow.html() + '<td colspan="4" id="remainingTime">00:00</td>');
 
-   dataChart.html(dataChart.html() + '<tr id="copy"><td colspan="7">Q250@司马懿（又要更新）</td></tr>');
+   dataChart.html(dataChart.html() + '<tr id="copy"><td colspan="7">299@int main250</td></tr>');
 
    tick();
    setInterval(tick, 1000);
@@ -275,31 +275,31 @@ var getEventDisplayName = function(eve){
    var eventStr = 'N/A';
    switch (eve) {
       case 'wish':
-         eventStr = '许愿';
+         eventStr = '许愿(wish)';
          break;
       case 'recruit':
-         eventStr = '招募';
+         eventStr = '招募(recruit)';
          break;
       case 'power':
-         eventStr = '实力';
+         eventStr = '实力(recruit)';
          break;
       case 'research':
-         eventStr = '研究';
+         eventStr = '研究(research)';
          break;
       case 'build':
-         eventStr = '建造';
+         eventStr = '建造(build)';
          break;
       case 'brutal':
-         eventStr = '原始';
+         eventStr = '原始(brutal)';
          break;
       case 'clean':
-         eventStr = '扫除';
+         eventStr = '扫除(clean)';
          break;
       case 'wolf':
-         eventStr = '杀狼';
+         eventStr = '杀狼(wolf)';
          break;
       case 'rune':
-         eventStr = '符文';
+         eventStr = '符文(rune)';
          break;
    }
    return eventStr;
@@ -309,31 +309,31 @@ var getEventFullName = function(eve){
    var eventStr = 'N/A';
    switch (eve) {
       case 'wish':
-         eventStr = '许愿树';
+         eventStr = '许愿树wish';
          break;
       case 'recruit':
-         eventStr = '极速招募';
+         eventStr = '极速招募recruit';
          break;
       case 'power':
-         eventStr = '实力提升';
+         eventStr = '实力提升power';
          break;
       case 'research':
-         eventStr = '研究大师';
+         eventStr = '研究大师research';
          break;
       case 'build':
-         eventStr = '全速建造';
+         eventStr = '全速建造build';
          break;
       case 'brutal':
-         eventStr = '原始人战争';
+         eventStr = '原始人战争brutal';
          break;
       case 'clean':
-         eventStr = '大扫除';
+         eventStr = '大扫除clean';
          break;
       case 'wolf':
-         eventStr = '部落杀狼';
+         eventStr = '部落杀狼wolf';
          break;
       case 'rune':
-         eventStr = '符文低语';
+         eventStr = '符文低语rune';
          break;
    }
    return eventStr;
