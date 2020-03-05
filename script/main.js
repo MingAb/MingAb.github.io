@@ -129,7 +129,7 @@ $(document).ready(()=>{
 });
 
 function onCickCopy(){
-   swal('版本信息', '当前版本: 1.0.11<br><br>本次更新：<br>+ 美化弹出窗口。<br>+ 正确显示连续的活动剩余时间。<br>+ 点击显示该活动还需的剩余时间范围。<br><br>联系作者：QQ791156900', 'info');
+   swal('版本信息', '当前版本: 1.0.11<br><br>本次更新：<br>美化弹出窗口<br>更新活动时间表<br>点击显示该活动还需的剩余时间范围<br><br>联系作者：QQ898503667', 'info');
 };
 
 function onCellClick(){
