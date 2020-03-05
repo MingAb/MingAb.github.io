@@ -103,7 +103,7 @@ $(document).ready(()=>{
 
 
          if(trueChart[_day + '_' + _time].length > 1){
-            eventStr = '<div id="tiger">剑齿虎</div>' + eventStr;
+            eventStr = '<div id="tiger">剑齿虎tiger</div>' + eventStr;
          }
 
          testTime = Math.floor(_testTime / 4);
