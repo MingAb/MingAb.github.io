@@ -48,15 +48,15 @@ var timeline = {
       },{
          "day": 1,
          "time": 5,
-         "event": "rune"
-      },{
-         "day": 2,
-         "time": 0,
          "event": "build"
       },{
          "day": 2,
-         "time": 1,
+         "time": 0,
          "event": "recruit"
+      },{
+         "day": 2,
+         "time": 1,
+         "event": "wish"
       },{
          "day": 2,
          "time": 2,
@@ -80,11 +80,11 @@ var timeline = {
       },{
          "day": 3,
          "time": 1,
-         "event": "wolf"
+         "event": "rune"
       },{
          "day": 3,
          "time": 2,
-         "event": "wolf"
+         "event": "recruit"
       },{
          "day": 3,
          "time": 3,
@@ -92,19 +92,19 @@ var timeline = {
       },{
          "day": 3,
          "time": 4,
-         "event": "power"
+         "event": "wolf"
       },{
          "day": 3,
          "time": 5,
-         "event": "recruit"
+         "event": "wolf"
       },{
          "day": 4,
          "time": 0,
-         "event": "clean"
+         "event": "rune"
       },{
          "day": 4,
          "time": 1,
-         "event": "rune"
+         "event": "wish"
       },{
          "day": 4,
          "time": 2,
