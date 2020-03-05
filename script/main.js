@@ -281,7 +281,7 @@ var getEventDisplayName = function(eve){
          eventStr = '招募(recruit)';
          break;
       case 'power':
-         eventStr = '实力(recruit)';
+         eventStr = '实力(power)';
          break;
       case 'research':
          eventStr = '研究(research)';
