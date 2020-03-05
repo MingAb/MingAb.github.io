@@ -16,7 +16,7 @@ var timeline = {
       },{
          "day": 0,
          "time": 3,
-         "event": "build"
+         "event": "rune"
       },{
          "day": 0,
          "time": 4,
@@ -28,7 +28,7 @@ var timeline = {
       },{
          "day": 1,
          "time": 0,
-         "event": "build"
+         "event": "research"
       },{
          "day": 1,
          "time": 1,
@@ -72,7 +72,7 @@ var timeline = {
       },{
          "day": 2,
          "time": 5,
-         "event": "build"
+         "event": "rune"
       },{
          "day": 3,
          "time": 0,
